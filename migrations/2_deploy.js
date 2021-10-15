@@ -4,6 +4,7 @@ const safeMath = artifacts.require("safeMath");
 
 module.exports = function (deployer) {
   deployer.deploy(HEX0924);
-  deployer.deploy(smartContract);
   deployer.deploy(safeMath);
+  deployer.deploy(smartContract);
+  
 };

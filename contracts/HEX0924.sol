@@ -33,7 +33,7 @@ contract HEX0924 {
     
     
     
-    function upgrageTo(address _newImplementation) external onlyOwner {
+    function upgradeTo(address _newImplementation) external onlyOwner {
         require(implementation != _newImplementation);
         _setImplementation(_newImplementation);
     }
