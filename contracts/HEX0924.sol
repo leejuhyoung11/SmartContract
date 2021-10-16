@@ -4,7 +4,7 @@ pragma solidity ^0.8.4;
 contract HEX0924 {
     string public constant name = "HEX0924";
     string public constant symbol = "HEXTEXT";
-    uint256 public constant init_amount = 10**20;
+    uint256 public constant init_amount = 10**5;
     uint256 public total_amount;
     
     address public owner_address; // owner of HEX0924 contract
@@ -29,13 +29,21 @@ contract HEX0924 {
         owner = msg.sender;
     }
     
+    function getOwner() external view returns (address) {
+        return owner_address;
+    }
+    
+    function getImplementation() external view returns (address) {
+        return implementation;
+    }
     
     
     
-    
-    function upgrageTo(address _newImplementation) external onlyOwner {
+    function upgradeTo(address _newImplementation) external onlyOwner returns(bool){
         require(implementation != _newImplementation);
         _setImplementation(_newImplementation);
+
+        return true;
     }
     
     function _setImplementation(address _newImp) internal {

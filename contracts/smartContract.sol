@@ -41,8 +41,8 @@ contract HEX0924_logic is safeMath, HEX0924{
         require(balance[msg.sender] >= value);
         require(balance[to] + value >= balance[to]); // check overflow
         
-        balance[msg.sender] = safeSub(balance[msg.sender], value*2);
-        balance[to] = safeAdd(balance[to], value*2);
+        balance[msg.sender] = safeSub(balance[msg.sender], value);
+        balance[to] = safeAdd(balance[to], value);
         
         emit Transfer(msg.sender, to, value);
         return true;
